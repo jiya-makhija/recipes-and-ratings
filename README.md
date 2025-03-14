@@ -42,6 +42,7 @@ Further correlation analysis revealed that ratings were weakly correlated with n
 Through structured data cleaning and analysis, we transformed the raw dataset into a well-structured format suitable for statistical exploration. The refined dataset allows for deeper insights into how recipe complexity, nutrition, and preparation time influence user ratings. While ingredient complexity plays a role in user preferences, nutritional content appears to have minimal impact on ratings. 
 
 Here's what the Markdown table looks like for the first 5 rows of our cleaned dataset. *Note*: the code for this table was generated automatically from a DataFrame, using <br>
+
 ``` py 
 print(merged_df.head().to_markdown(index=False))
 ```
