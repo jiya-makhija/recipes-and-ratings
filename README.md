@@ -309,7 +309,12 @@ To further improve performance, we fine-tuned hyperparameters using **GridSearch
 • 15 pts
 Clearly state your choice of Group X and Group Y, your evaluation metric, your null and alternative hypotheses, your choice of test statistic and significance level, the resulting p-value, and your conclusion.
 
-Optional: Embed a visualization related to your permutation test in your website.
+<iframe
+  src="assets/rmse_pairness_plot.png"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
 
 
