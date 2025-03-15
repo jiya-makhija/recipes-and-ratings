@@ -145,7 +145,7 @@ We further examined the missingness of the description column by testing whether
 #### Distribution of n_steps Based on Missing Descriptions
 To analyze whether the complexity of a recipe affects missing descriptions, we compared the distribution of n_steps (number of steps in a recipe) for recipes with and without missing descriptions.
 
-**Null Hypothesis**: The missingness of `description` does not depend on `n_steps`
+**Null Hypothesis**: The missingness of `description` does not depend on `n_steps`.
 **Alternative Hypothesis**: The missingness of `description` does depend on `n_steps`.
 
 **Findings**
