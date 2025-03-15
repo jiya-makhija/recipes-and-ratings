@@ -62,6 +62,13 @@ print(merged_df.head().to_markdown(index=False))
 - Include a 1-2 sentence explanation about your plot, making sure to describe and interpret any trends present.
 - Feel free to embed more than one univariate visualization in your website if you’d like, but make sure that each embedded plot is accompanied by a description.
 
+<iframe
+  src="assets/cooking_time_vs_ingredients.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
 ### Bivariate Analysis
 - Embed at least one `plotly` plot that displays the relationship between two columns.
 - Include a 1-2 sentence explanation about your plot, making sure to describe and interpret any trends present.
