@@ -64,8 +64,8 @@ print(merged_df.head().to_markdown(index=False))
 
 <iframe
   src="assets/cooking_time_vs_ingredients.html"
-  width="800"
-  height="600"
+  width="500"
+  height="500"
   frameborder="0"
 ></iframe>
 
