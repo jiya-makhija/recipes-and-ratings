@@ -114,8 +114,8 @@ The box plot shows that recipe ratings are fairly consistent across different nu
 
 <iframe
   src="assets/ingredient_complexity_pivot.html"
-  width="600"
-  height="300"
+  width="500"
+  height="200"
   frameborder="0"
 ></iframe>
 
