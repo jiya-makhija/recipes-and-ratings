@@ -121,12 +121,12 @@ The box plot shows that recipe ratings are fairly consistent across different nu
   frameborder="0"
 ></iframe>
 
-This table summarizes the number of recipes and their average ratings based on ingredient complexity. We observe that recipes classified as "Simple" (≤9 ingredients) tend to receive slightly higher average ratings compared to "Complex" recipes (>9 ingredients). This suggests that users might prefer recipes that require fewer ingredients, possibly because they are easier to prepare.
+This table summarizes the number of recipes and their average ratings based on ingredient complexity. We observe that recipes classified as "Simple" (≤9 ingredients) tend to receive slightly higher average ratings compared to "Complex" recipes (>9 ingredients). This suggests that users might prefer recipes that require fewer ingredients, possibly because they are easier to prepare. <br> <br>
 
 <iframe
   src="assets/time_rating_pivot.html"
   width="500"
-  height="400"
+  height="300"
   frameborder="0"
 ></iframe>
 
