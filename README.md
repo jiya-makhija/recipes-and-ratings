@@ -154,11 +154,11 @@ P value: 0.03
 We observed that recipes with missing descriptions tend to have fewer steps on average, suggesting that **simpler recipes are less likely to have descriptions**. This supports the idea that missing descriptions are dependent on recipe complexity, making them **Missing at Random (MAR)**.
 
 #### Distribution of ratings based on Missing Descriptions
-We also investigated whether user ratings correlate with missing descriptions. The goal was to determine whether recipes without descriptions tend to have lower or higher ratings.
-**Null Hypothesis**: The missingness of `description` does not depend on `rating`
+We also investigated whether user ratings correlate with missing descriptions. The goal was to determine whether recipes without descriptions tend to have lower or higher ratings. \ 
+**Null Hypothesis**: The missingness of `description` does not depend on `rating`.
 **Alternative Hypothesis**: The missingness of `description` does depend on `rating`.
 
-**Findings**
+**Findings**\
 P value: 0.52
 We found that recipes with missing descriptions are slightly more likely to have lower ratings. However, the difference is not substantial, suggesting that while there may be a weak dependency, it is not a strong predictor. This suggests that description missingness is still best classified as **Missing completely at Random (MCAR)**.
 
