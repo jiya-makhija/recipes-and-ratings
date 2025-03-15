@@ -134,24 +134,33 @@ This table summarizes the average cooking time for recipes grouped by their user
 
 
 ## Assessment of Missingness
-• Addressed NMAR question (4 points)
-• Performed permutation tests for missingness (8 points)
-• Interpreted missingness test results (8 points)
+Three columns, description, rating, and review, in the merged dataset have a significant amount of missing values, so we conducted an analysis to determine the nature of their missingness.
+
 ### NMAR Analysis 
-- State whether you believe there is a column in your dataset that is NMAR.
-- Explain your reasoning and any additional data you might want to obtain that could explain the missingness (thereby making it MAR).
-- Make sure to explicitly use the term “NMAR.”
+We believe that the missingness of the `review` column is **Not Missing at Random (NMAR)** because whether a review is left depends on factors that are not recorded in our dataset. External factors such as lack of time, mood, or social considerations may influence whether someone leaves a review. A user may intend to leave a review but forget, or they may avoid leaving one due to concerns about judgment from others if their name is visible. These unrecorded behavioral patterns reinforce the likelihood that the missingness of review is NMAR.
 
 ### Missingness Dependency 
-- Present and interpret the results of your missingness permutation tests with respect to your data and question.
-- Embed a `plotly` plot related to your missingness exploration; ideas include:
-    - The distribution of column Y when column X is missing and the distribution of column Y when column X is not missing, as was done in Lecture 8.
-    - The empirical distribution of the test statistic used in one of your permutation tests, along with the observed statistic.
+We further examined the missingness of the description column by testing whether its missingness is related to other columns in the dataset.
 
+#### Distribution of n_steps Based on Missing Descriptions
+To analyze whether the complexity of a recipe affects missing descriptions, we compared the distribution of n_steps (number of steps in a recipe) for recipes with and without missing descriptions.
+**Null Hypothesis**: The missingness of `description` does not depend on `n_steps`
 
+**Alternative Hypothesis**
+The missingness of `description` does depend on `n_steps`.
 
+**Findings**
+P value: 0.03
+We observed that recipes with missing descriptions tend to have fewer steps on average, suggesting that **simpler recipes are less likely to have descriptions**. This supports the idea that missing descriptions are dependent on recipe complexity, making them **Missing at Random (MAR)**.
 
+#### Distribution of ratings based on Missing Descriptions
+We also investigated whether user ratings correlate with missing descriptions. The goal was to determine whether recipes without descriptions tend to have lower or higher ratings.
+**Null Hypothesis**: The missingness of `description` does not depend on `rating`
+**Alternative Hypothesis**: The missingness of `description` does depend on `rating`.
 
+**Findings**
+P value: 0.52
+We found that recipes with missing descriptions are slightly more likely to have lower ratings. However, the difference is not substantial, suggesting that while there may be a weak dependency, it is not a strong predictor. This suggests that description missingness is still best classified as **Missing completely at Random (MCAR)**.
 
 
 ---
