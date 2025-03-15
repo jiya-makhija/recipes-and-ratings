@@ -98,8 +98,6 @@ The majority of recipes have received high ratings (4 or 5 stars), indicating th
 
 
 ### Bivariate Analysis
-- Embed at least one `plotly` plot that displays the relationship between two columns.
-- Include a 1-2 sentence explanation about your plot, making sure to describe and interpret any trends present.
 
 <iframe
   src="assets/cooking_time_vs_ingredients.html"
@@ -108,12 +106,18 @@ The majority of recipes have received high ratings (4 or 5 stars), indicating th
   frameborder="0"
 ></iframe>
 
+There is a weak positive correlation between cooking time and the number of ingredients. Recipes with more ingredients tend to require longer cooking times, but the relationship is not strong. This suggests that while complex recipes may take longer to prepare, many simple recipes also require extended cooking times, possibly due to slow-cooking or baking techniques.
+
+
 <iframe
   src="assets/steps_vs_rating.html"
   width="800"
   height="600"
   frameborder="0"
 ></iframe>
+
+The box plot shows that recipe ratings are fairly consistent across different numbers of steps. While the median rating remains high (around 4.5) for all step counts, there is a slight increase in variability for recipes with very few or very many steps. This suggests that users do not necessarily prefer simpler or more complex recipes based on the number of steps alone.
+
 
 ### Interesting Aggregates
 - Embed at least one grouped table or pivot table in your website and explain its significance
