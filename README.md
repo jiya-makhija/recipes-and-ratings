@@ -10,22 +10,14 @@ To investigate this question, we analyze two datasets. The first dataset, `RAW_r
 Several key variables from these datasets are neccessary for our analysis. From `RAW_recipes.csv`, the `ingredients` column lists the components used in each recipe, while `n_ingredients` quantifies the total number of ingredients. Additionally, the `minutes` column specifies the time required to prepare a dish, providing insight into the role of convenience in recipe popularity. From `interactions.csv`, the `rating` column captures user evaluations of a recipe, serving as our primary measure of recipe success.
 
 
-*To do:* 
-~~- clearly state the one question your project is centered around~~
-- Why should readers of your website care about the dataset and your question specifically?
-~~- Report the number of rows in the dataset, the names of the columns that are relevant to your question, and descriptions of those relevant columns.~~
 
-
-
-
+---
 
 
 
 
 ## Data Cleaning and Exploratory Analysis
-• Cleaned data (8 points)
-• Performed univariate analyses (8 points)
-• Performed bivariate analyses and aggregations (8 points)
+
 ### Data Cleaning
 *Describe, in detail, the data cleaning steps you took and how they affected your analyses. The steps should be explained in reference to the data generating process. Show the head of your cleaned DataFrame (see Part 2: Report for instructions).* <br>
 
@@ -125,7 +117,7 @@ The box plot shows that recipe ratings are fairly consistent across different nu
 
 
 
-
+---
 
 
 ## Assessment of Missingness
@@ -149,7 +141,7 @@ The box plot shows that recipe ratings are fairly consistent across different nu
 
 
 
-
+---
 
 ## Hypothesis Testing
 
@@ -158,8 +150,8 @@ This study examines whether the number of ingredients in a recipe has a signific
 
 To formally assess this question, we define our hypotheses as follows:
 
-- **Null Hypothesis (\(H_0\))**: The distribution of recipe ratings is the same for recipes with 9 or fewer ingredients and recipes with more than 9 ingredients. Any observed difference in mean ratings is due to random chance.
-- **Alternative Hypothesis (\(H_1\))**: The distribution of recipe ratings differs between recipes with 9 or fewer ingredients and those with more than 9 ingredients, suggesting that ingredient count influences user ratings.
+- **Null Hypothesis**: The distribution of recipe ratings is the same for recipes with 9 or fewer ingredients and recipes with more than 9 ingredients. Any observed difference in mean ratings is due to random chance.
+- **Alternative Hypothesis**: The distribution of recipe ratings differs between recipes with 9 or fewer ingredients and those with more than 9 ingredients, suggesting that ingredient count influences user ratings.
 
 <br>
 The dataset contains several variables relevant to this analysis. Specifically, we focus on:
@@ -186,8 +178,8 @@ The use of 1,000 permutations ensures that the null distribution is well-approxi
 
 Following the execution of the permutation test, we obtain an **observed difference in mean ratings** of 0.003649 and a **p-value** of 0.216. The interpretation of the p-value is as follows:
 
-- If \( p \leq 0.05 \), we reject the null hypothesis, indicating that the number of ingredients in a recipe has a statistically significant effect on user ratings.
-- If \( p > 0.05 \), we fail to reject the null hypothesis, meaning there is insufficient statistical evidence to conclude that ingredient count impacts ratings. However, failing to reject the null hypothesis does not prove that ingredient count has no effect; rather, it suggests that any potential difference was not statistically significant given the available data.
+- If **p &le; 0.05**, we reject the null hypothesis, indicating that the number of ingredients in a recipe has a statistically significant effect on user ratings.
+- If **p &ge; 0.05**, we fail to reject the null hypothesis, meaning there is insufficient statistical evidence to conclude that ingredient count impacts ratings. However, failing to reject the null hypothesis does not prove that ingredient count has no effect; rather, it suggests that any potential difference was not statistically significant given the available data.
 
 
 Since the p-value is 0.216, which is greater than 0.05, we fail to reject the null hypothesis. This suggests that there is not strong statistical evidence that the number of ingredients affects the ratings.
@@ -196,40 +188,58 @@ Since the p-value is 0.216, which is greater than 0.05, we fail to reject the nu
 By employing a non-parametric method that does not impose restrictive assumptions, this analysis ensures that the findings remain relevant and generalizable to datasets with diverse distributions.
 
 
-
+---
 
 
 ## Framing a Prediction Problem
-• 15 pts
-
-Clearly state your prediction problem and type (classification or regression). If you are building a classifier, make sure to state whether you are performing binary classification or multiclass classification. Report the response variable (i.e. the variable you are predicting) and why you chose it, the metric you are using to evaluate your model and why you chose it over other suitable metrics (e.g. accuracy vs. F1-score).
-
-Note: Make sure to justify what information you would know at the “time of prediction” and to only train your model using those features. For instance, if we wanted to predict your final exam grade, we couldn’t use your Final Project grade, because the project is only due after the final exam! Feel free to ask questions if you’re not sure.
 
 
+In this project, we define a supervised learning prediction problem aimed at understanding the factors that influence recipe ratings. The problem is framed as a **regression type task**, where we seek to predict the continuous numerical rating of a recipe based on various features extracted from the dataset.
+
+The response variable in our regression model is the recipe rating, which represents the average user rating for a given recipe. We select this variable because it provides a direct measure of recipe quality and user satisfaction. Predicting recipe ratings allows us to offer better recommendations and insights into what characteristics contribute to highly-rated recipes.
+
+To evaluate the performance of our regression model, we choose the Root Mean Squared Error (RMSE) as the primary metric. RMSE is appropriate because it penalizes larger errors more heavily, making it useful in scenarios where extreme mispredictions should be minimized. While other metrics, such as Mean Absolute Error (MAE) or R-squared, could also be considered, RMSE provides an intuitive measure of how far predicted ratings deviate from actual ratings in the dataset.
+
+A crucial aspect of our model development is ensuring that the features used for training are available at the time of prediction to prevent data leakage. For instance, we include recipe attributes such as ingredient composition, preparation time, and user-generated metadata, while excluding post-publication data like cumulative user ratings or review counts, which would not be known when a new recipe is first introduced.
+
+By framing the problem as a regression task, we aim to develop a predictive model that provides valuable insights into the determinants of recipe success. The findings from this study can help enhance recipe recommendation systems and assist culinary content creators in optimizing their recipes for better engagement and ratings.
 
 
-
+---
 
 
 
 ## Baseline Model 
-• 35 pts
-Describe your model and state the features in your model, including how many are quantitative, ordinal, and nominal, and how you performed any necessary encodings. Report the performance of your model and whether or not you believe your current model is “good” and why.
 
-Tip: Make sure to hit all of the points above: many projects in the past have lost points for not doing so.
+Our predictive model is a Linear Regression model designed to estimate recipe ratings based on key features extracted from the dataset. The model was implemented using Scikit-learn’s pipeline, incorporating feature scaling to standardize numerical inputs before training.
+
+The model utilizes three quantitative features:
+
+- `minutes`: The total preparation and cooking time for a recipe.
+- `n_steps`: The number of steps involved in preparing the recipe.
+- `n_ingredients`: The number of unique ingredients required.
+  
+These features were selected based on their potential influence on user ratings. For instance, recipes with fewer steps or ingredients might be more appealing to users looking for simplicity, while longer preparation times could be indicative of more elaborate dishes that may receive higher ratings.
+
+In regards to data types, there are three quantitative features mentioned above. Additionally, the dataset does not contain any ordinal variables that require ranking-based encoding, and no nominal variables are present in the current feature set. 
+
+
+The model was trained and evaluated using an 80-20 train-test split. The Root Mean Squared Error (RMSE) was chosen as the primary evaluation metric, as it effectively quantifies the deviation between predicted and actual ratings.
+
+
+We obtained an RMSE of 0.7139, which indicates that, on average, the model's predicted ratings deviate by approximately 0.71 points from the actual ratings. This suggests that while the model provides a reasonable baseline, there is room for improvement. 
+
+The use of Linear Regression as a baseline model assumes a strictly linear relationship between the selected features and recipe ratings, which may not fully represent the complexity of user preferences. Additionally, the model does not yet incorporate potential categorical variables or nonlinear interactions that could improve predictive performance. While the current model provides a solid foundation, its performance could be enhanced, making it more robust and effective in predicting recipe ratings.
 
 
 
-
-
+---
 
 
 
 
 
 ## Final Model
-• 35 pts
 State the features you added and why they are good for the data and prediction task. Note that you can’t simply state “these features improved my accuracy”, since you’d need to choose these features and fit a model before noticing that – instead, talk about why you believe these features improved your model’s performance from the perspective of the data generating process.
 
 Describe the modeling algorithm you chose, the hyperparameters that ended up performing the best, and the method you used to select hyperparameters and your overall model. Describe how your Final Model’s performance is an improvement over your Baseline Model’s performance.
