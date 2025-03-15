@@ -126,7 +126,7 @@ This table summarizes the number of recipes and their average ratings based on i
 <iframe
   src="assets/time_rating_pivot.html"
   width="500"
-  height="600"
+  height="400"
   frameborder="0"
 ></iframe>
 
