@@ -144,10 +144,9 @@ We further examined the missingness of the description column by testing whether
 
 #### Distribution of n_steps Based on Missing Descriptions
 To analyze whether the complexity of a recipe affects missing descriptions, we compared the distribution of n_steps (number of steps in a recipe) for recipes with and without missing descriptions.
-**Null Hypothesis**: The missingness of `description` does not depend on `n_steps`
 
-**Alternative Hypothesis**
-The missingness of `description` does depend on `n_steps`.
+**Null Hypothesis**: The missingness of `description` does not depend on `n_steps`
+**Alternative Hypothesis**: The missingness of `description` does depend on `n_steps`.
 
 **Findings**
 P-value: 0.246
@@ -161,11 +160,12 @@ Since the p-value is greater than 0.05, we fail to reject the null hypothesis. T
 ></iframe>
 
 #### Distribution of ratings based on Missing Descriptions
-We also investigated whether user ratings correlate with missing descriptions. The goal was to determine whether recipes without descriptions tend to have lower or higher ratings. \ 
+We also investigated whether user ratings correlate with missing descriptions. The goal was to determine whether recipes without descriptions tend to have lower or higher ratings.
+
 **Null Hypothesis**: The missingness of `description` does not depend on `rating`.
 **Alternative Hypothesis**: The missingness of `description` does depend on `rating`.
 
-**Findings**\
+**Findings**
 P-value: 0.01
 Since the p-value is less than 0.05, we **reject** the null hypothesis. This suggests that the missingness of description is dependent on the rating of the recipe. Since ratings are user-generated and not an inherent property of the recipe, this suggests that description missingness is likely Missing at Random (MAR) with respect to rating.
 
@@ -273,8 +273,6 @@ The use of Linear Regression as a baseline model assumes a strictly linear relat
 
 
 
-
-
 ## Final Model
 ### Feature Selection
 For our final model, we carefully selected features that enhance the prediction of recipe ratings. Our selection was guided by factors such as **recipe complexity, user experience, and nutritional content**, as all of these elements can influence how users perceive and rate a recipe.
@@ -303,9 +301,8 @@ To further improve performance, we fine-tuned hyperparameters using **GridSearch
 
 Even though adding more estimators means decreasing variance and limits randomization within the model, it stabilizes
 
-### Our final model achieved an **RMSE of 0.651**, which represents an improvement over the baseline **RMSE of 0.71**.
-
-
+#### Our final model achieved an **RMSE of 0.651**, which represents an improvement over the baseline **RMSE of 0.71**.
+#### As we mentioned earlier, our baseline model wasn’t capturing a non-linear relationship, and our final model, fitted with various features, was able to better generalize by incorporating additional engineered features and leveraging Random Forest’s ability to model complex interactions.
 
 ---
 
