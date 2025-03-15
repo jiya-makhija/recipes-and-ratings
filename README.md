@@ -63,11 +63,35 @@ print(merged_df.head().to_markdown(index=False))
 - Feel free to embed more than one univariate visualization in your website if you’d like, but make sure that each embedded plot is accompanied by a description.
 
 <iframe
-  src="assets/cooking_time_vs_ingredients.html"
+  src="assets/distribution_cooking_time.html"
   width="500"
   height="500"
   frameborder="0"
 ></iframe>
+
+<iframe
+  src="assets/distribution_n_steps.html"
+  width="500"
+  height="500"
+  frameborder="0"
+></iframe>
+
+<iframe
+  src="assets/assets/distribution_n_ingredients.html"
+  width="500"
+  height="500"
+  frameborder="0"
+></iframe>
+
+<iframe
+  src="assets/distribution_ratings.html"
+  width="500"
+  height="500"
+  frameborder="0"
+></iframe>
+
+
+
 
 ### Bivariate Analysis
 - Embed at least one `plotly` plot that displays the relationship between two columns.
