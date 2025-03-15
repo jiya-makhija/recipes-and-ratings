@@ -121,8 +121,14 @@ The box plot shows that recipe ratings are fairly consistent across different nu
 
 This table summarizes the number of recipes and their average ratings based on ingredient complexity. We observe that recipes classified as "Simple" (≤9 ingredients) tend to receive slightly higher average ratings compared to "Complex" recipes (>9 ingredients). This suggests that users might prefer recipes that require fewer ingredients, possibly because they are easier to prepare.
 
+<iframe
+  src="assets/time_rating_pivot.html"
+  width="500"
+  height="200"
+  frameborder="0"
+></iframe>
 
-
+This table summarizes the average cooking time for recipes grouped by their user ratings. We observe that recipes with a 5-star rating tend to have a slightly higher average cooking time (~107 minutes) compared to lower-rated recipes. Interestingly, 3-star recipes have the shortest average cooking time (~87 minutes), suggesting that recipes requiring less effort might not always lead to higher satisfaction. This could indicate that users value recipes that take more time to prepare, potentially because they result in better flavor or texture. However, the difference across ratings is not very large, meaning other factors—such as ingredients or cooking techniques—might play a more significant role in recipe ratings.
 
 ---
 
