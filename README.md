@@ -134,6 +134,21 @@ This table summarizes the average cooking time for recipes grouped by their user
 
 
 ## Assessment of Missingness
+
+<iframe
+  src="assets/perm_rating.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+<iframe
+  src="assets/perm_steps.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
 Three columns, description, rating, and review, in the merged dataset have a significant amount of missing values, so we conducted an analysis to determine the nature of their missingness.
 
 ### NMAR Analysis 
