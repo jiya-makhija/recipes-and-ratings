@@ -152,35 +152,48 @@ The box plot shows that recipe ratings are fairly consistent across different nu
 
 
 ## Hypothesis Testing
-• Selected relevant columns for a hypothesis or permutation test (4 points)
-~~• Explicitly stated a null hypothesis (4 points)~~
-~~• Explicitly stated an alternative hypothesis (4 points)~~
-• Performed a hypothesis or permutation test (8 points)
-• Used a valid test statistic (4 points)
-• Computed a p-value and made a decision (4 points)
 
-- Clearly state your null and alternative hypotheses, your choice of test statistic and significance level, the resulting p-value, and your conclusion.
-- Justify why these choices are good choices for answering the question you are trying to answer.
-
-Optional: Embed a visualization related to your hypothesis test in your website.
-
-Tip: When making writing your conclusions to the statistical tests in this project, never use language that implies an absolute conclusion; since we are performing statistical tests and not randomized controlled trials, we cannot prove that either hypothesis is 100% true or false.
-
-Our **null hypothesis** is "The average rating of recipes with 9 or fewer ingredients is the same as recipes with more than 9 ingredients. Any observed difference is due to random chance."
-
-Our **alternative hypothesis** is "The average rating of recipes with 9 or fewer ingredients is different from recipes with more than 9 ingredients."
-
-Our relevant features were the `insert column names here` from the `RAW_recipes.csv` file. 
-We thought a permuation test was best due to . . .
-
-We performed a permutation test by...
-
-We thought a valid test statistic for the permuation test was by difference of means. 
-
-Thus, from our permutation test, we got an observed difference in mean ratings as 0.003649, and calculated a p-value of 0.216. Since p = 0.216, which is greater than 0.05, we fail to reject the null hypothesis. This suggests that there is not strong statistical evidence that the number of ingredients affects the ratings.
+This study examines whether the number of ingredients in a recipe has a significant impact on user ratings. To investigate this, we conduct a permutation test comparing the average ratings of recipes categorized as "Simple" (those with 9 or fewer ingredients) and "Complex" (those with more than 9 ingredients). The goal is to determine whether any observed difference in ratings is due to an actual effect of ingredient count or merely a result of random variation. <br>
 
 
+To formally assess this question, we define our hypotheses as follows:
 
+- **Null Hypothesis (\(H_0\))**: The distribution of recipe ratings is the same for recipes with 9 or fewer ingredients and recipes with more than 9 ingredients. Any observed difference in mean ratings is due to random chance.
+- **Alternative Hypothesis (\(H_1\))**: The distribution of recipe ratings differs between recipes with 9 or fewer ingredients and those with more than 9 ingredients, suggesting that ingredient count influences user ratings.
+
+<br>
+The dataset contains several variables relevant to this analysis. Specifically, we focus on:
+
+- **`rating`**: The numerical rating assigned by users to a recipe, which serves as the dependent variable.
+- **`ingredient_complexity`**: A categorical variable that classifies recipes into two groups:  
+  - **"Simple"**: Recipes with 9 or fewer ingredients.  
+  - **"Complex"**: Recipes with more than 9 ingredients.  
+
+The two groups `Simple` and `Complex` are naturally independent, allowing for a valid between-group comparison. The test statistic, defined as the mean difference in ratings between these two groups enables a clear assessment of whether the observed difference is statistically significant. These variables allow us to compare the mean ratings between the two groups.
+
+A permutation test was selected because it does not rely on parametric assumptions regarding the distribution of ratings, unlike traditional tests such as the t-test, which require normality and equal variance. Given that these assumptions may not hold in this dataset, the permutation approach provides a more flexible and reliable method for comparing group means by constructing a null distribution directly from the observed data. Additionally, since the research question focuses on whether recipes with fewer ingredients receive different ratings than those with more ingredients, a comparison of independent groups is the most appropriate approach.
+
+The test is conducted as follows:
+
+1. Compute the observed difference in mean ratings between the two groups.
+2. Randomly permute the `rating` column while keeping the `ingredient_complexity` group labels fixed.
+3. Recalculate the mean difference between the two groups after each shuffle.
+4. Repeat this process 1,000 times to generate a null distribution of mean differences under the assumption that ingredient count does not affect ratings.
+5. Compute the p-value as the proportion of shuffled differences that are equal to or more extreme than the observed difference.
+
+The use of 1,000 permutations ensures that the null distribution is well-approximated, leading to a more accurate p-value estimation and reducing the influence of random variation.
+
+
+Following the execution of the permutation test, we obtain an **observed difference in mean ratings** of 0.003649 and a **p-value** of 0.216. The interpretation of the p-value is as follows:
+
+- If \( p \leq 0.05 \), we reject the null hypothesis, indicating that the number of ingredients in a recipe has a statistically significant effect on user ratings.
+- If \( p > 0.05 \), we fail to reject the null hypothesis, meaning there is insufficient statistical evidence to conclude that ingredient count impacts ratings. However, failing to reject the null hypothesis does not prove that ingredient count has no effect; rather, it suggests that any potential difference was not statistically significant given the available data.
+
+
+Since the p-value is 0.216, which is greater than 0.05, we fail to reject the null hypothesis. This suggests that there is not strong statistical evidence that the number of ingredients affects the ratings.
+
+
+By employing a non-parametric method that does not impose restrictive assumptions, this analysis ensures that the findings remain relevant and generalizable to datasets with diverse distributions.
 
 
 
