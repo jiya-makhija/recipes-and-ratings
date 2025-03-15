@@ -68,12 +68,16 @@ print(merged_df.head().to_markdown(index=False))
   frameborder="0"
 ></iframe>
 
+The majority of recipes have a cooking time of less than 100 minutes, with a sharp decline in frequency for longer times. However, a few extreme outliers with cooking times exceeding 100,000 minutes distort the scale. These long durations likely represent data entry errors or slow-cooking methods (e.g., fermentation).
+
 <iframe
   src="assets/distribution_n_steps.html"
   width="800"
   height="600"
   frameborder="0"
 ></iframe>
+
+Most recipes have between 5 and 15 steps, suggesting that online recipes generally aim to be easy to follow. The number of steps follows a right-skewed distribution, meaning there are a few recipes with significantly more steps, likely representing more complex or gourmet dishes.
 
 <iframe
   src="assets/distribution_n_ingredients.html"
@@ -82,6 +86,9 @@ print(merged_df.head().to_markdown(index=False))
   frameborder="0"
 ></iframe>
 
+The number of ingredients in most recipes falls between 5 and 15, with very few recipes using more than 20 ingredients. This suggests that most recipes balance simplicity and flavor by using a moderate number of ingredients, while only a handful of recipes require an extensive list of ingredients.
+
+
 <iframe
   src="assets/distribution_ratings.html"
   width="800"
@@ -89,6 +96,7 @@ print(merged_df.head().to_markdown(index=False))
   frameborder="0"
 ></iframe>
 
+The majority of recipes have received high ratings (4 or 5 stars), indicating that users tend to rate recipes favorably. There are fewer low ratings (0-2), which may reflect a bias where users only rate recipes they enjoyed, rather than leaving negative feedback.
 
 
 
