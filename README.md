@@ -145,11 +145,11 @@ We further examined the missingness of the description column by testing whether
 #### Distribution of n_steps Based on Missing Descriptions
 To analyze whether the complexity of a recipe affects missing descriptions, we compared the distribution of n_steps (number of steps in a recipe) for recipes with and without missing descriptions.
 
-**Null Hypothesis**: The missingness of `description` does not depend on `n_steps`.
-**Alternative Hypothesis**: The missingness of `description` does depend on `n_steps`.
+- **Null Hypothesis**: The missingness of `description` does not depend on `n_steps`.
+- **Alternative Hypothesis**: The missingness of `description` does depend on `n_steps`.
 
 **Findings**
-P-value: 0.246
+- P-value: 0.246
 Since the p-value is greater than 0.05, we fail to reject the null hypothesis. This suggests that recipe complexity (n_steps) does not significantly influence whether a recipe has a missing description, indicating that description missingness is Missing Completely at Random (MCAR) with respect to n_steps.
 
 <iframe
@@ -162,11 +162,11 @@ Since the p-value is greater than 0.05, we fail to reject the null hypothesis. T
 #### Distribution of ratings based on Missing Descriptions
 We also investigated whether user ratings correlate with missing descriptions. The goal was to determine whether recipes without descriptions tend to have lower or higher ratings.
 
-**Null Hypothesis**: The missingness of `description` does not depend on `rating`.
-**Alternative Hypothesis**: The missingness of `description` does depend on `rating`.
+- **Null Hypothesis**: The missingness of `description` does not depend on `rating`.
+- **Alternative Hypothesis**: The missingness of `description` does depend on `rating`.
 
 **Findings**
-P-value: 0.01
+- P-value: 0.01
 Since the p-value is less than 0.05, we **reject** the null hypothesis. This suggests that the missingness of description is dependent on the rating of the recipe. Since ratings are user-generated and not an inherent property of the recipe, this suggests that description missingness is likely Missing at Random (MAR) with respect to rating.
 
 <iframe
