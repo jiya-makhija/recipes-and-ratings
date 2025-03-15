@@ -306,8 +306,43 @@ To further improve performance, we fine-tuned hyperparameters using **GridSearch
 
 
 ## Fairness Analysis
-• 15 pts
-Clearly state your choice of Group X and Group Y, your evaluation metric, your null and alternative hypotheses, your choice of test statistic and significance level, the resulting p-value, and your conclusion.
+
+### Group Selection  
+To assess whether our model exhibits bias, we analyzed its performance across two groups:  
+
+- **Group X (Simple Recipes):** Recipes with **9 or fewer ingredients**  
+- **Group Y (Complex Recipes):** Recipes with **more than 9 ingredients**  
+
+Our goal was to determine if the model predicts ratings more accurately for one group over the other.  
+
+### Evaluation Metric 
+
+Since our model is a **regressor**, we used **Root Mean Squared Error (RMSE)** as our evaluation metric. RMSE measures how far predicted ratings deviate from actual ratings, with **lower RMSE values indicating better performance**.  
+
+### Hypothesis Testing  
+- **Null Hypothesis:** The model is **fair**—its RMSE for simple and complex recipes is similar, and any differences are due to random chance.  
+- **Alternative Hypothesis:** The model is **unfair**—its RMSE is significantly different between simple and complex recipes, meaning it performs better for one group over the other.  
+
+### Permutation Test  
+To test fairness, we performed a **permutation test** where we randomly shuffled the `ingredient_complexity` labels (`Simple` vs. `Complex`) and computed the RMSE difference between the two groups 1,000 times. The **test statistic** used was the absolute difference in RMSE between the two groups.  
+
+### Results
+
+| **Group**       | **Observed RMSE** |
+|---------------|----------------|
+| **Simple Recipes**  | 0.6416 |
+| **Complex Recipes** | 0.6637 |
+| **Observed RMSE Difference (|Simple - Complex|)** | **0.0221** |
+
+After running **1,000 permutations**, we obtained the following:  
+
+- **p-value = 0.023**  
+
+Since our **p-value (0.023) is below the 0.05 significance level**, we reject the null hypothesis. This means our model **does not perform equally well across both groups**, indicating a bias in its predictions.  
+
+### Interpretation  
+
+The model **performs better for simple recipes**, as indicated by their lower RMSE. This suggests that recipe complexity (as measured by ingredient count) impacts the model’s predictive ability. **The model struggles more with complex recipes**, likely due to increased variation in their structure, preparation methods, and potential user biases in rating these recipes.  
 
 <iframe
   src="assets/rmse_pairness_plot.png"
