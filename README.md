@@ -102,8 +102,8 @@ There is a weak positive correlation between cooking time and the number of ingr
 
 <iframe
   src="assets/steps_vs_rating.html"
-  width="800"
-  height="600"
+  width="500"
+  height="400"
   frameborder="0"
 ></iframe>
 
