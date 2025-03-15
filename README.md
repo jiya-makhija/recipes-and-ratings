@@ -63,29 +63,29 @@ print(merged_df.head().to_markdown(index=False))
 
 <iframe
   src="assets/distribution_cooking_time.html"
-  width="500"
-  height="500"
+  width="800"
+  height="600"
   frameborder="0"
 ></iframe>
 
 <iframe
   src="assets/distribution_n_steps.html"
-  width="500"
-  height="500"
+  width="800"
+  height="600"
   frameborder="0"
 ></iframe>
 
 <iframe
   src="assets/distribution_n_ingredients.html"
-  width="500"
-  height="500"
+  width="800"
+  height="600"
   frameborder="0"
 ></iframe>
 
 <iframe
   src="assets/distribution_ratings.html"
-  width="500"
-  height="500"
+  width="800"
+  height="600"
   frameborder="0"
 ></iframe>
 
