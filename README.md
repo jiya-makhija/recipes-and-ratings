@@ -140,7 +140,7 @@ Three columns, description, rating, and review, in the merged dataset have a sig
 We believe that the missingness of the `review` column is **Not Missing at Random (NMAR)** because whether a review is left depends on factors that are not recorded in our dataset. External factors such as lack of time, mood, or social considerations may influence whether someone leaves a review. A user may intend to leave a review but forget, or they may avoid leaving one due to concerns about judgment from others if their name is visible. These unrecorded behavioral patterns reinforce the likelihood that the missingness of review is NMAR.
 
 ### Missingness Dependency 
-We further examined the missingness of the description column by testing whether its missingness is related to other columns in the dataset.
+We further examined the missingness of the `description` column by testing whether its missingness is related to other columns in the dataset.
 
 #### Distribution of n_steps Based on Missing Descriptions
 To analyze whether the complexity of a recipe affects missing descriptions, we compared the distribution of n_steps (number of steps in a recipe) for recipes with and without missing descriptions.
@@ -150,7 +150,8 @@ To analyze whether the complexity of a recipe affects missing descriptions, we c
 
 **Findings**
 - P-value: 0.246
-Since the p-value is greater than 0.05, we fail to reject the null hypothesis. This suggests that recipe complexity (n_steps) does not significantly influence whether a recipe has a missing description, indicating that description missingness is Missing Completely at Random (MCAR) with respect to n_steps.
+- Since the p-value is greater than 0.05, we **fail to reject** the null hypothesis.
+This suggests that recipe complexity (n_steps) does not significantly influence whether a recipe has a missing description, indicating that description missingness is Missing Completely at Random (MCAR) with respect to n_steps.
 
 <iframe
   src="assets/perm_steps.html"
@@ -167,7 +168,8 @@ We also investigated whether user ratings correlate with missing descriptions. T
 
 **Findings**
 - P-value: 0.01
-Since the p-value is less than 0.05, we **reject** the null hypothesis. This suggests that the missingness of description is dependent on the rating of the recipe. Since ratings are user-generated and not an inherent property of the recipe, this suggests that description missingness is likely Missing at Random (MAR) with respect to rating.
+- Since the p-value is less than 0.05, we **reject** the null hypothesis.
+- This suggests that the missingness of description is dependent on the rating of the recipe. Since ratings are user-generated and not an inherent property of the recipe, this suggests that description missingness is likely Missing at Random (MAR) with respect to rating.
 
 <iframe
   src="assets/perm_rating.html"
