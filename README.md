@@ -332,7 +332,7 @@ To test fairness, we performed a **permutation test** where we randomly shuffled
 |---------------|----------------|
 | **Simple Recipes**  | 0.6416 |
 | **Complex Recipes** | 0.6637 |
-| **Observed RMSE Difference (|Simple - Complex|)** | **0.0221** |
+| **Absolute Observed RMSE Difference** | **0.0221** |
 
 After running **1,000 permutations**, we obtained the following:  
 
