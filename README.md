@@ -150,7 +150,7 @@ To analyze whether the complexity of a recipe affects missing descriptions, we c
 The missingness of `description` does depend on `n_steps`.
 
 **Findings**
-P value: 0.03
+P value: 0.005
 We observed that recipes with missing descriptions tend to have fewer steps on average, suggesting that **simpler recipes are less likely to have descriptions**. This supports the idea that missing descriptions are dependent on recipe complexity, making them **Missing at Random (MAR)**.
 
 #### Distribution of ratings based on Missing Descriptions
@@ -262,17 +262,28 @@ The use of Linear Regression as a baseline model assumes a strictly linear relat
 
 
 ## Final Model
-State the features you added and why they are good for the data and prediction task. Note that you can’t simply state “these features improved my accuracy”, since you’d need to choose these features and fit a model before noticing that – instead, talk about why you believe these features improved your model’s performance from the perspective of the data generating process.
+### Feature Selection
+For our final model, we carefully selected features that enhance the prediction of recipe ratings. Our selection was guided by factors such as **recipe complexity, user experience, and nutritional content**, as all of these elements can influence how users perceive and rate a recipe.
+- **`n_steps`**: The number of steps in a recipe reflects its complexity. Users may prefer simpler recipes with fewer steps, leading to higher ratings. Conversely, recipes with too many steps might be perceived as time-consuming or difficult, leading to lower ratings.  
+- **`minutes`**: Time is a crucial factor in cooking. Recipes with excessive preparation time may deter users, impacting ratings. However, certain dishes require longer cooking times to develop flavors, so this feature captures an important trade-off in recipe evaluation.  
+- **`n_ingredients`**: The total number of ingredients can serve as a proxy for complexity. Users may associate fewer ingredients with ease and simplicity, while a higher number may signal a richer, more flavorful dish.  
+- **`review`**: Reviews often contain subjective feedback about a recipe’s taste, ease of preparation, and accuracy of instructions. By applying **TF-IDF vectorization**, we transformed textual reviews into numerical features, allowing the model to extract sentiment-driven insights from user feedback.  
+- **`ingredients_per_step`**: This derived feature captures how ingredient-heavy each step is. A high number of ingredients per step might indicate a complex recipe, whereas a lower number suggests simplicity. This ratio helps differentiate between straightforward and intricate recipes.  
+- **`time_per_step`**: This feature measures the average time spent on each recipe step. It provides insight into whether a recipe requires extensive multitasking or long waiting periods, both of which can influence user satisfaction.  
+- **`nutrition_density`**: We engineered this feature by combining calories, protein, saturated fat, and carbohydrates into a single metric. This metric captures the **nutritional richness** of a recipe. Some users may prefer nutrient-dense meals, while others may prioritize low-calorie options. Including this feature allows the model to account for **health-conscious preferences** in ratings.  
 
-Describe the modeling algorithm you chose, the hyperparameters that ended up performing the best, and the method you used to select hyperparameters and your overall model. Describe how your Final Model’s performance is an improvement over your Baseline Model’s performance.
 
-Optional: Include a visualization that describes your model’s performance, e.g. a confusion matrix, if applicable.
+### Model Selection and Hyperparameter Tuning
+We opted for a **Random Forest Regressor**, a non-linear ensemble model well-suited for handling structured datasets with both numerical and categorical features. This model was chosen because it captures non-linear relationships** between recipe attributes and ratings. Additionally, it reduces overfitting by averaging multiple decision trees.  
 
+To further improve performance, we fine-tuned hyperparameters using **GridSearchCV** with 3-fold cross-validation. Our parameter grid included:  
 
+- **`n_estimators`**: [40, 50]
+- **`max_depth`**: [5, None]
 
-
-
-
+**Best Hyperparameters:**  
+- **`n_estimators = 50`**  
+- **`max_depth = None`** (allowing trees to grow fully)  
 ---
 
 
