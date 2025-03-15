@@ -286,7 +286,7 @@ For our final model, we carefully selected features that enhance the prediction 
 Feature-Engineered Columns:
 - **`ingredients_per_step`**: This derived feature captures how ingredient-heavy each step is. A high number of ingredients per step might indicate a complex recipe, whereas a lower number suggests simplicity. This ratio helps differentiate between straightforward and intricate recipes.  
 - **`time_per_step`**: This feature measures the average time spent on each recipe step. It provides insight into whether a recipe requires extensive multitasking or long waiting periods, both of which can influence user satisfaction.  
-- **`nutrition_density`**: We engineered this feature by combining calories, protein, saturated fat, and carbohydrates into a single metric. This metric captures the **nutritional richness** of a recipe. Some users may prefer nutrient-dense meals, while others may prioritize low-calorie options. Including this feature allows the model to account for **health-conscious preferences** in ratings.  
+- **`nutrition_density`**: We engineered this feature by combining calories, protein, saturated fat, and carbohydrates into a single metric. This metric captures the nutritional richness of a recipe. Some users may prefer nutrient-dense meals, while others may prioritize low-calorie options. Including this feature allows the model to account for health-conscious preferences in ratings.  
 
 
 ### Model Selection and Hyperparameter Tuning
@@ -298,8 +298,10 @@ To further improve performance, we fine-tuned hyperparameters using **GridSearch
 - **`max_depth`**: [5, None]
 
 **Best Hyperparameters:**  
-- **`n_estimators = 50`**  
-- **`max_depth = None`**
+- **`n_estimators = 50`** 
+- **`max_depth = None`** (allowed trees to be deep enough to fully capture complex patterns in the data)
+
+Even though adding more estimators means decreasing variance and limits randomization within the model, it stabilizes
 
 ### Our final model achieved an **RMSE of 0.651**, which represents an improvement over the baseline **RMSE of 0.71**.
 
