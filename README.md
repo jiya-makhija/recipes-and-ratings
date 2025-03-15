@@ -47,6 +47,8 @@ print(merged_df.head().to_markdown(index=False))
 | 412 broccoli casserole               | 306168 |        40 |            50969 | 2008-05-30 00:00:00 | ['60-minutes-or-less', 'time-to-make', 'course', 'main-ingredient', 'preparation', 'side-dishes', 'vegetables', 'easy', 'beginner-cook', 'broccoli']                                                                        |         6 | ['preheat oven to 350 degrees', 'spray a 2 quart baking dish with cooking spray , set aside', 'in a large bowl mix together broccoli , soup , one cup of cheese , garlic powder , pepper , salt , milk , 1 cup of french onions , and soy sauce', 'pour into baking dish , sprinkle remaining cheese over top', 'bake for 25 minutes or until cheese is lightly browned', 'sprinkle with rest of french fried onions and bake until onions are browned and cheese is bubbly , about 10 more minutes']                                                                                                                                                                                                                                                                                                                              | since there are already 411 recipes for broccoli casserole posted to "zaar" ,i decided to call this one  #412 broccoli casserole.i don't think there are any like this one in the database. i based this one on the famous "green bean casserole" from campbell's soup. but i think mine is better since i don't like cream of mushroom soup.submitted to "zaar" on may 28th,2008 | ['frozen broccoli cuts', 'cream of chicken soup', 'sharp cheddar cheese', 'garlic powder', 'ground black pepper', 'salt', 'milk', 'soy sauce', 'french-fried onions']          |               9 |      194.8 |          20 |       6 |       32 |        22 |              36 |               3 | 768828           |      306168 | 2013-08-02 00:00:00 |        5 | Loved this.  Be sure to completely thaw the broccoli.  I didn&#039;t and it didn&#039;t get done in time specified.  Just cooked it a little longer though and it was perfect.  Thanks Chef.                                                                                                                                                                                                                                                                                          |                5 | Simple                  |                   0 |         5.71429 |               1.28571  |
 
 
+--
+
 ### Univariate Analysis
 
 <iframe
@@ -86,7 +88,7 @@ The number of ingredients in most recipes falls between 5 and 15, with very few 
 
 The majority of recipes have received high ratings (4 or 5 stars), indicating that users tend to rate recipes favorably. There are fewer low ratings (0-2), which may reflect a bias where users only rate recipes they enjoyed, rather than leaving negative feedback.
 
-
+--
 
 ### Bivariate Analysis
 
@@ -109,6 +111,7 @@ There is a weak positive correlation between cooking time and the number of ingr
 
 The box plot shows that recipe ratings are fairly consistent across different numbers of steps. While the median rating remains high (around 4.5) for all step counts, there is a slight increase in variability for recipes with very few or very many steps. This suggests that users do not necessarily prefer simpler or more complex recipes based on the number of steps alone.
 
+--
 
 ### Interesting Aggregates
 
@@ -124,7 +127,7 @@ This table summarizes the number of recipes and their average ratings based on i
 <iframe
   src="assets/time_rating_pivot.html"
   width="500"
-  height="200"
+  height="600"
   frameborder="0"
 ></iframe>
 
