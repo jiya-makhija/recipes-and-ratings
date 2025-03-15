@@ -281,7 +281,7 @@ For our final model, we carefully selected features that enhance the prediction 
 - **`n_steps`**: The number of steps in a recipe reflects its complexity. Users may prefer simpler recipes with fewer steps, leading to higher ratings. Conversely, recipes with too many steps might be perceived as time-consuming or difficult, leading to lower ratings.  
 - **`minutes`**: Time is a crucial factor in cooking. Recipes with excessive preparation time may deter users, impacting ratings. However, certain dishes require longer cooking times to develop flavors, so this feature captures an important trade-off in recipe evaluation.  
 - **`n_ingredients`**: The total number of ingredients can serve as a proxy for complexity. Users may associate fewer ingredients with ease and simplicity, while a higher number may signal a richer, more flavorful dish. 
-- **`review`**: Reviews often contain subjective feedback about a recipe’s taste, ease of preparation, and accuracy of instructions. By applying **TF-IDF vectorization**, we transformed textual reviews into numerical features, allowing the model to extract sentiment-driven insights from user feedback.
+- **`review`**: Reviews often contain subjective feedback about a recipe’s taste, ease of preparation, and accuracy of instructions. By applying TF-IDF vectorization, we transformed textual reviews into numerical features, allowing the model to extract sentiment-driven insights from user feedback.
 
 Feature-Engineered Columns:
 - **`ingredients_per_step`**: This derived feature captures how ingredient-heavy each step is. A high number of ingredients per step might indicate a complex recipe, whereas a lower number suggests simplicity. This ratio helps differentiate between straightforward and intricate recipes.  
@@ -321,7 +321,7 @@ Our goal was to determine if the model predicts ratings more accurately for one 
 
 ### Evaluation Metric 
 
-Since our model is a **regressor**, we used **Root Mean Squared Error (RMSE)** as our evaluation metric. RMSE measures how far predicted ratings deviate from actual ratings, with **lower RMSE values indicating better performance**.  
+Since our model is a **regressor**, we used **Root Mean Squared Error (RMSE)** as our evaluation metric. RMSE measures how far predicted ratings deviate from actual ratings, with lower RMSE values indicating better performance.  
 
 ### Hypothesis Testing  
 - **Null Hypothesis:** The model is **fair**—its RMSE for simple and complex recipes is similar, and any differences are due to random chance.  
@@ -342,11 +342,11 @@ After running **1,000 permutations**, we obtained the following:
 
 - **p-value = 0.023**  
 
-Since our **p-value (0.023) is below the 0.05 significance level**, we reject the null hypothesis. This means our model **does not perform equally well across both groups**, indicating a bias in its predictions.  
+Since our **p-value (0.023)** is below the 0.05 significance level, we *reject* the null hypothesis. This means our model does not perform equally well across both groups, indicating a bias in its predictions.  
 
 ### Interpretation  
 
-The model **performs better for simple recipes**, as indicated by their lower RMSE. This suggests that recipe complexity (as measured by ingredient count) impacts the model’s predictive ability. **The model struggles more with complex recipes**, likely due to increased variation in their structure, preparation methods, and potential user biases in rating these recipes.  
+The model **performs better for simple recipes**, as indicated by their lower RMSE. This suggests that recipe complexity (as measured by ingredient count) impacts the model’s predictive ability. The model struggles more with complex recipes, likely due to increased variation in their structure, preparation methods, and potential user biases in rating these recipes.  
 
 <img src="assets/rmse_fairness_plot.png" width="600" height="200">
 
