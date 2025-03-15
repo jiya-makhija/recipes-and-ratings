@@ -101,6 +101,20 @@ The majority of recipes have received high ratings (4 or 5 stars), indicating th
 - Embed at least one `plotly` plot that displays the relationship between two columns.
 - Include a 1-2 sentence explanation about your plot, making sure to describe and interpret any trends present.
 
+<iframe
+  src="assets/cooking_time_vs_ingredients.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+<iframe
+  src="assets/steps_vs_rating.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
 ### Interesting Aggregates
 - Embed at least one grouped table or pivot table in your website and explain its significance
 
