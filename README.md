@@ -19,7 +19,6 @@ Several key variables from these datasets are neccessary for our analysis. From 
 ## Data Cleaning and Exploratory Analysis
 
 ### Data Cleaning
-*Describe, in detail, the data cleaning steps you took and how they affected your analyses. The steps should be explained in reference to the data generating process. Show the head of your cleaned DataFrame (see Part 2: Report for instructions).* <br>
 
 The dataset underwent a multi-step cleaning and transformation process to enhance its quality for analysis. The original dataset contained raw recipe information along with user interactions, which required refinement to ensure consistency, remove errors, and enable meaningful analysis. One of the most critical data cleaning steps involved processing the `nutrition` column, which originally stored values as a single string representing a list. We extracted individual nutritional components, such as calories, total fat, sugar, sodium, protein, saturated fat, and carbohydrates, and converted them into numeric format. This step ensured that the nutritional data could be analyzed quantitatively rather than as raw text. By structuring the nutrition data into distinct numerical fields, we enabled meaningful statistical computations, including correlations with recipe ratings and complexity.
 
@@ -112,7 +111,15 @@ The box plot shows that recipe ratings are fairly consistent across different nu
 
 
 ### Interesting Aggregates
-- Embed at least one grouped table or pivot table in your website and explain its significance
+
+<iframe
+  src="assets/ingredient_complexity_pivot.html"
+  width="600"
+  height="300"
+  frameborder="0"
+></iframe>
+
+This table summarizes the number of recipes and their average ratings based on ingredient complexity. We observe that recipes classified as "Simple" (≤9 ingredients) tend to receive slightly higher average ratings compared to "Complex" recipes (>9 ingredients). This suggests that users might prefer recipes that require fewer ingredients, possibly because they are easier to prepare.
 
 
 
