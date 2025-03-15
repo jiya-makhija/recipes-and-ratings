@@ -344,7 +344,7 @@ Since our **p-value (0.023) is below the 0.05 significance level**, we reject th
 
 The model **performs better for simple recipes**, as indicated by their lower RMSE. This suggests that recipe complexity (as measured by ingredient count) impacts the model’s predictive ability. **The model struggles more with complex recipes**, likely due to increased variation in their structure, preparation methods, and potential user biases in rating these recipes.  
 
-<img src="assets/rmse_fairness_plot.png" width="800" height="300">
+<img src="assets/rmse_fairness_plot.png" width="700" height="300">
 
 
 
