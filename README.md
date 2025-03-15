@@ -57,9 +57,6 @@ print(merged_df.head().to_markdown(index=False))
 
 
 ### Univariate Analysis
-- Embed at least one `plotly` plot you created in your notebook that displays the distribution of a single column (see Part 2: Report for instructions)
-- Include a 1-2 sentence explanation about your plot, making sure to describe and interpret any trends present.
-- Feel free to embed more than one univariate visualization in your website if you’d like, but make sure that each embedded plot is accompanied by a description.
 
 <iframe
   src="assets/distribution_cooking_time.html"
